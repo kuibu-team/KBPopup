@@ -1,0 +1,6 @@
+framework module KBDecorationView {
+  umbrella header "KBDecorationView-umbrella.h"
+
+  export *
+  module * { export * }
+}

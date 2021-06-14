@@ -1,0 +1,22 @@
+PODS:
+  - KBDecorationView (1.5)
+
+DEPENDENCIES:
+  - KBDecorationView (from `https://github.com/kuibu-team/KBDecorationView.git`, tag `1.5`)
+
+EXTERNAL SOURCES:
+  KBDecorationView:
+    :git: https://github.com/kuibu-team/KBDecorationView.git
+    :tag: '1.5'
+
+CHECKOUT OPTIONS:
+  KBDecorationView:
+    :git: https://github.com/kuibu-team/KBDecorationView.git
+    :tag: '1.5'
+
+SPEC CHECKSUMS:
+  KBDecorationView: cde44913f0347be59061a64f3ae55f9db31c245b
+
+PODFILE CHECKSUM: 6a8d81c2e8c89a70bba4ac69f4a9f1629f3be654
+
+COCOAPODS: 1.10.1
