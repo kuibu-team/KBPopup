@@ -11,7 +11,7 @@ iOS带箭头的起泡弹窗
 在`Podfile`文件中加入
 
 ```ruby
-pod 'KBPopup', '~> 1.0.0'
+pod 'KBPopup', '~> 1.0.1'
 ```
 
 

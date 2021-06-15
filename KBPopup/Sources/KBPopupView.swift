@@ -128,14 +128,17 @@ open class KBPopupView: KBDecorationView {
     
     public override init(contentView: UIView) {
         super.init(contentView: contentView, contentInsets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        self.backgroundColor = UIColor(white: 60/255.0, alpha: 1.0)
     }
     
     public override init(contentView: UIView, contentInsets: UIEdgeInsets) {
         super.init(contentView: contentView, contentInsets: contentInsets)
+        self.backgroundColor = UIColor(white: 60/255.0, alpha: 1.0)
     }
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.backgroundColor = UIColor(white: 60/255.0, alpha: 1.0)
     }
     
     
@@ -263,7 +266,7 @@ extension KBPopupView {
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue             = 0
             animation.toValue               = 1.0
-            animation.duration              = 0.25
+            animation.duration              = 0.15
             animation.timingFunction        = CAMediaTimingFunction(name : .easeInEaseOut)
             animation.fillMode              = .forwards
             animation.isRemovedOnCompletion = false
@@ -300,7 +303,7 @@ extension KBPopupView {
             let animation = CASpringAnimation(keyPath: "opacity")
             animation.fromValue             = 1.0
             animation.toValue               = 0
-            animation.duration              = 0.25
+            animation.duration              = 0.15
             animation.timingFunction        = CAMediaTimingFunction(name : .easeInEaseOut)
             animation.fillMode              = .forwards
             animation.isRemovedOnCompletion = false
@@ -350,13 +353,12 @@ extension KBPopupView {
         guard sourceViewFrame != .zero else {
             return
         }
-        
-        guard self.superview != containerView else {
-            return
-        }
             
         self.bounds = CGRect(x: 0, y: 0, width: self.intrinsicContentSize.width, height: self.intrinsicContentSize.height)
-        containerView.addSubview(self)
+        
+        if self.superview != containerView {
+            containerView.addSubview(self)
+        }
         
         let positionX: CGFloat
         let positionY: CGFloat
