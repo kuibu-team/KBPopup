@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "KBPopup"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "iOS带箭头的起泡弹窗"
   spec.description  = <<-DESC
                       iOS带箭头的起泡弹窗，使用于需要在页面内弹窗的场景

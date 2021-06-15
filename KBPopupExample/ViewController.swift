@@ -10,7 +10,15 @@ import KBPopup
 
 class ViewController: UIViewController {
     
-    var popupView: KBPopupView?
+    lazy var popupView: KBPopupView = {
+        let myView = UIView(frame: .zero)
+        myView.backgroundColor = .red
+
+        let popupView = KBPopupView(contentView: myView)
+        popupView.contentSize = CGSize(width: 180, height: 66)
+        popupView.margin = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        return popupView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +31,16 @@ class ViewController: UIViewController {
             return
         }
         
-        let myView = UIView(frame: .zero)
-        myView.backgroundColor = .red
-
-        let popupView = KBPopupView(contentView: myView)
-        popupView.contentSize = CGSize(width: 180, height: 66)
-//        popupView.sourceView = button
         if let buttonFrame = button.window?.convert(button.frame, from: button.superview) {
             popupView.sourceFrame = buttonFrame
         }
-        popupView.margin = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         
         popupView.show(in: self.view)
-        
-        self.popupView = popupView
     }
     
     @objc
     func backgroundDidTap(_ sender: Any?) {
-//        self.dismiss(animated: true, completion: nil)
-//        self.popupView?.removeFromSuperview()
-        self.popupView?.hide()
+        self.popupView.hide()
     }
     
     func testPopupView() {

@@ -49,7 +49,7 @@ open class KBPopupView: KBDecorationView {
     @objc
     private var arrowDirection: ArrowDirection = .down {
         didSet {
-            invalidateIntrinsicContentSize()
+            setNeedsLayout()
         }
     }
     
@@ -259,8 +259,6 @@ extension KBPopupView {
     @objc
     public func show(in containerView: UIView) {
         show(in: containerView) { popupView in
-            
-            popupView.layer.opacity = 0;
                                             
             // 默认显示动画
             let animation = CABasicAnimation(keyPath: "opacity")
@@ -282,13 +280,22 @@ extension KBPopupView {
     @objc
     public func show(in containerView: UIView, animationSetup: ((KBPopupView) -> Void)?) {
         
+        let animated = (containerView != self.superview)
+        if animated {
+            self.layer.opacity = 0;
+        } else {
+            self.layer.opacity = 1;
+        }
+        
         addToContainer(containerView)
         
         if self.superview == nil {
             return
         }
         
-        animationSetup?(self)
+        if animated {
+            animationSetup?(self)
+        }
     }
     
     /// 隐藏弹窗，采用默认隐藏动画
@@ -371,6 +378,7 @@ extension KBPopupView {
             arrowVertexXOffset = sourceViewFrame.midX - (containerView.bounds.width - self.bounds.midX - margin.right)
             positionX = containerView.bounds.width - margin.right - (bounds.width - arrowVertexPosition.x)
         } else {
+            arrowVertexXOffset = 0
             positionX = sourceViewFrame.midX
         }
         
