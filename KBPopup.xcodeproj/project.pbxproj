@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E09B752267B26AC009D3E88 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E09B751267B26AC009D3E88 /* ListViewController.swift */; };
 		6E2B7CDC2673395400197BEE /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7CDB2673395400197BEE /* ObjCViewController.m */; };
 		6E7FD13F2670AECF008289B9 /* KBPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7FD13D2670AECF008289B9 /* KBPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E7FD1492670B70F008289B9 /* KBPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FD1482670B70F008289B9 /* KBPopupView.swift */; };
@@ -49,6 +50,7 @@
 		12B6146BD5D2A71A7BA358F2 /* Pods_KBPopupExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KBPopupExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBDC366B575BB10E64B0D59 /* Pods-KBPopupController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPopupController.debug.xcconfig"; path = "Target Support Files/Pods-KBPopupController/Pods-KBPopupController.debug.xcconfig"; sourceTree = "<group>"; };
 		24914E2EB29E1584D56999D9 /* Pods-KBPopupControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPopupControllerExample.debug.xcconfig"; path = "Target Support Files/Pods-KBPopupControllerExample/Pods-KBPopupControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		6E09B751267B26AC009D3E88 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		6E2B7CD92673395400197BEE /* KBPopupExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KBPopupExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		6E2B7CDA2673395400197BEE /* ObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCViewController.h; sourceTree = "<group>"; };
 		6E2B7CDB2673395400197BEE /* ObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				6E2B7CDA2673395400197BEE /* ObjCViewController.h */,
 				6E2B7CDB2673395400197BEE /* ObjCViewController.m */,
 				6E2B7CD92673395400197BEE /* KBPopupExample-Bridging-Header.h */,
+				6E09B751267B26AC009D3E88 /* ListViewController.swift */,
 			);
 			path = KBPopupExample;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				6E2B7CDC2673395400197BEE /* ObjCViewController.m in Sources */,
 				6E7FD1552670EA56008289B9 /* ViewController.swift in Sources */,
+				6E09B752267B26AC009D3E88 /* ListViewController.swift in Sources */,
 				6E7FD1512670EA56008289B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

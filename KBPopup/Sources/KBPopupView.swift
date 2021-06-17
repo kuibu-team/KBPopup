@@ -360,6 +360,16 @@ extension KBPopupView {
         guard sourceViewFrame != .zero else {
             return
         }
+        
+        let windowSourceViewFrame: CGRect
+        let windowBounds: CGRect
+        if let window = containerView.window {
+            windowSourceViewFrame = window.convert(sourceViewFrame, from: containerView)
+            windowBounds = window.bounds
+        } else {
+            windowSourceViewFrame = sourceViewFrame
+            windowBounds = containerView.bounds
+        }
             
         self.bounds = CGRect(x: 0, y: 0, width: self.intrinsicContentSize.width, height: self.intrinsicContentSize.height)
         
@@ -382,13 +392,27 @@ extension KBPopupView {
             positionX = sourceViewFrame.midX
         }
         
-        if (sourceViewFrame.origin.y - self.bounds.height > margin.top) { // 弹窗在上，箭头朝下
+        if (windowSourceViewFrame.origin.y - self.bounds.height >= margin.top) { // 弹窗在上，箭头朝下
             self.arrowDirection = .down
             positionY = sourceViewFrame.origin.y
-        } else { // 弹窗在下，箭头朝上
+        } else if ((windowSourceViewFrame.maxY + self.bounds.height) <= (windowBounds.height - margin.bottom)) { // 弹窗在下，箭头朝上
             self.arrowDirection = .up
             positionY = sourceViewFrame.origin.y + sourceViewFrame.height
+        } else { // 弹窗在屏幕中间，箭头朝下
+            self.arrowDirection = .down
+            if let window = containerView.window {
+                positionY = containerView.convert(CGPoint(x: windowBounds.midX, y: windowBounds.midY), from: window).y
+            } else {
+                positionY = containerView.convert(CGPoint(x: sourceFrame.midX, y: sourceFrame.midX), from: window).y
+            }
         }
+//        if (sourceViewFrame.origin.y - self.bounds.height > margin.top) { // 弹窗在上，箭头朝下
+//            self.arrowDirection = .down
+//            positionY = sourceViewFrame.origin.y
+//        } else { // 弹窗在下，箭头朝上
+//            self.arrowDirection = .up
+//            positionY = sourceViewFrame.origin.y + sourceViewFrame.height
+//        }
         
         let anchorX: CGFloat = arrowVertexPosition.x / bounds.width;
         let anchorY: CGFloat = arrowDirection == .down ? 1 : 0
